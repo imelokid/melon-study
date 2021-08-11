@@ -43,7 +43,7 @@ public class RandomUtil {
      * @return 生成的随机数
      */
     public static int randomInt(int from, int to) {
-        if (from >= to || from < 1) {
+        if (from >= to || from < 0) {
             throw new MelonException(MelonStatusCodeEnums.PARAMS_ILLG, "from:{} to:{}", from, to);
         }
 

@@ -29,9 +29,9 @@ public class CommonUtil {
         StringBuilder sb = new StringBuilder(desc);
         sb.append(":[");
         for(int i = 0; i < arr.length; i++) {
-            sb.append(arr[i] + ",");
+            sb.append(arr[i] + ", ");
         }
-        String printMgs = sb.substring(0, sb.length() - 1);
+        String printMgs = sb.substring(0, sb.length() - 2);
         printMgs += "]";
 
         // 输出
@@ -55,7 +55,12 @@ public class CommonUtil {
             return;
         }
 
-        // 通过位运算交换
+        // 同一个位置就不交换了
+        if(pos1 == pos2) {
+            return;
+        }
+
+        // 这种写法有一个BUG，就是当pos1 == pos2时，会将两个位置的值都设置为0
         // a = a ^ b
         arr[pos1] = arr[pos1] ^ arr[pos2];
         // a = a ^ b ^ b -> a ^ (b ^ b) = a;
