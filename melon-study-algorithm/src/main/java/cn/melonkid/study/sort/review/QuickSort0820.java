@@ -14,7 +14,7 @@ public class QuickSort0820 implements SortAlgorithm {
 
     @Override
     public void sort(int[] sourceArr) {
-        quickSort(sourceArr, 0, sourceArr.length -1);
+        quickSort(sourceArr, 0, sourceArr.length - 1);
     }
 
 
@@ -27,7 +27,7 @@ public class QuickSort0820 implements SortAlgorithm {
      */
     public void quickSort(int[] sourceArr, int startPos, int endPos) {
         // 递归结束判断
-        if(startPos > endPos) {
+        if (startPos >= endPos) {
             return;
         }
 
@@ -52,32 +52,31 @@ public class QuickSort0820 implements SortAlgorithm {
         // 选择参考位置，这里选择第一个
         int seed = sourceArr[startPos];
         int lo = startPos;
-        int hi = endPos;
+        int hi = endPos + 1;
 
         // 开始扫描
-        while(true) {
-            // 从右向左扫描
-            while(sourceArr[hi] >= seed) {
-                hi--;
-                if(hi <= lo) {
-                   break;
-                }
-            }
-
-            // 循环到了头了，说明seed在数组中最小
-            if(lo == hi) {
-                break;
-            }
-
+        while (true) {
             // 从左向右扫描
-            while(sourceArr[lo++] <= seed) {
-                if(lo > hi) {
+            while (sourceArr[++lo] <= seed) {
+                if (lo == endPos) {
                     break;
                 }
             }
-            CommonUtil.switchNum(sourceArr, startPos, hi);
+
+            while (sourceArr[--hi] >= seed) {
+                if (hi == startPos) {
+                    break;
+                }
+            }
+
+            if (lo >= hi) {
+                break;
+            }
+
+            CommonUtil.switchNum(sourceArr, lo, hi);
         }
 
+        CommonUtil.switchNum(sourceArr, startPos, hi);
         return hi;
     }
 }

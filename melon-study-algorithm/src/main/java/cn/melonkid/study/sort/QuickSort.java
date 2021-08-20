@@ -59,7 +59,7 @@ public class QuickSort implements SortAlgorithm {
         int idex = lo;
         int seed = arr[idex];
 
-        int l = lo - 1;
+        int l = lo;
         int r = hi + 1;
 
         // 当数组还没有遍历完成时，循环一致进行
@@ -83,7 +83,7 @@ public class QuickSort implements SortAlgorithm {
                 break;
             }
 
-            // 执行交换
+            // 执行交换 [1,1,2,1,0,3,2]
             CommonUtil.switchNum(arr, l, r);
         }
 

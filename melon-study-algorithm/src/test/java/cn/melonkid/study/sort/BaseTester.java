@@ -23,13 +23,20 @@ public class BaseTester {
             int[] checkArr = Arrays.copyOf(testArr, testArr.length);
             int[] orgArr = Arrays.copyOf(testArr, testArr.length);
 
-            // 执行比较
-            sortAlgorithm.sort(testArr);
-            baseAlgorithm.sort(checkArr);
+            try{
+                // 执行比较
+                sortAlgorithm.sort(testArr);
+                baseAlgorithm.sort(checkArr);
+            }catch (Exception e){
+                CommonUtil.printArr(logger, "原始数组:", orgArr);
+                CommonUtil.printArr(logger, "排序数组:", testArr);
+                throw e;
+            }
+
 
             if(!CommonUtil.equals(testArr, checkArr)) {
-                CommonUtil.printArr(logger, "原始数组", orgArr);
-                CommonUtil.printArr(logger, "排序数组", testArr);
+                CommonUtil.printArr(logger, "原始数组:", orgArr);
+                CommonUtil.printArr(logger, "排序数组:", testArr);
                 assert !CommonUtil.equals(testArr, checkArr);
             }
         }
