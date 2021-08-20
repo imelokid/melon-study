@@ -26,6 +26,23 @@ public class CommonUtilTest {
         int[] arr = {2, 0, 11, 334, 0, 9};
         CommonUtil.switchNum(arr, 1, 2);
         CommonUtil.printArr(logger, "", arr);
+
+        CommonUtil.switchNum(arr, 1, 1);
+        CommonUtil.printArr(logger, "", arr);
+    }
+
+    @Test
+    public void testEquals() {
+        int[] arr = {2, 0, 11, 334, 0, 9};
+        int[] arr1 = {2, 0, 111, 334, 0, 9};
+        assert !CommonUtil.equals(arr, arr1);
+    }
+
+    @Test
+    public void testEquals1() {
+        int[] arr = {2, 0, 11, 334, 0, 9};
+        int[] arr1 = {2, 0, 11, 334, 0, 9};
+        assert CommonUtil.equals(arr, arr1);
     }
 
 }

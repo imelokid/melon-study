@@ -56,7 +56,7 @@ public class QuickSort implements SortAlgorithm {
      */
     private int partition(int[] arr, int lo, int hi) {
         // 获取基准位元素 这里其实可以随机获取，为了方便起见，这里就取第一元素作为基准
-        int idex = RandomUtil.randomInt(lo, hi + 1);
+        int idex = lo;
         int seed = arr[idex];
 
         int l = lo - 1;
