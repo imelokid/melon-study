@@ -12,7 +12,9 @@ import org.slf4j.LoggerFactory;
  * @author imelonkid
  * @date 2021/08/10 16:27
  **/
-public class BaseTester {
+public abstract class BaseTester {
+
+    public abstract void testSort();
 
     /** LOGGER */
     protected Logger logger = LoggerFactory.getLogger(BaseTester.class);
@@ -30,7 +32,7 @@ public class BaseTester {
             }catch (Exception e){
                 CommonUtil.printArr(logger, "原始数组:", orgArr);
                 CommonUtil.printArr(logger, "排序数组:", testArr);
-                throw e;
+                e.printStackTrace();
             }
 
 
