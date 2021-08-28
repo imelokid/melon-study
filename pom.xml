@@ -13,6 +13,8 @@
     <module>melon-study-algorithm</module>
     <module>melon-study-utils</module>
     <module>melon-study-commons</module>
+    <module>melon-study-base</module>
+    <module>melon-study-datastructure</module>
   </modules>
 
   <properties>
