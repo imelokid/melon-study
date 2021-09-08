@@ -19,23 +19,15 @@ public class InterruptDemo {
                     break;
                 }
                 System.out.println("I am running...");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                Thread.currentThread().interrupt();
             }
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         InterruptDemo demo = new InterruptDemo();
         T1 t1 = demo.new T1();
         t1.start();
-        int i = 0;
-        do {
-            i++;
-        } while (i != 100000);
         t1.interrupt();
     }
 }
