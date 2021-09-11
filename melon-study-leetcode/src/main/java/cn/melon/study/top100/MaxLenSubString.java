@@ -1,4 +1,4 @@
-package cn.melon.top100;
+package cn.melon.study.top100;
 
 import java.util.ArrayList;
 import java.util.HashMap;

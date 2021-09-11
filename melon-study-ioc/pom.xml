@@ -9,27 +9,18 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>melon-study-leetcode</artifactId>
-  <dependencies>
-    <dependency>
-      <groupId>cn.melonkid</groupId>
-      <artifactId>melon-study-datastructure</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>cn.melonkid</groupId>
-      <artifactId>melon-study-ioc</artifactId>
-    </dependency>
-
-  </dependencies>
+  <artifactId>melon-study-ioc</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
   </properties>
 
-
+  <dependencies>
+    <dependency>
+      <groupId>cn.melonkid</groupId>
+      <artifactId>melon-study-utils</artifactId>
+    </dependency>
+  </dependencies>
 
 </project>

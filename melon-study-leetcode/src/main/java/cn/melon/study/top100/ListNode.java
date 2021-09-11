@@ -1,4 +1,4 @@
-package cn.melon.top100;
+package cn.melon.study.top100;
 
 /**
  * 链表节点
