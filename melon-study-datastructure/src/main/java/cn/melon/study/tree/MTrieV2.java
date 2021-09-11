@@ -85,12 +85,12 @@ public class MTrieV2 {
         }
 
         List<StringBuilder> sbs = new ArrayList<>();
-        tracer(currNode, new StringBuilder(), s, sbs);
+        tracer(currNode, false, new StringBuilder(), s, sbs);
 
         return sbs;
     }
 
-    private void tracer(MTrieNodeV2 currNode, StringBuilder sb,String prefix, List<StringBuilder> sbs) {
+    private void tracer(MTrieNodeV2 currNode, boolean isStart, StringBuilder sb,String prefix, List<StringBuilder> sbs) {
         if(currNode.isWord && currNode.next.values().size() == 0) {
             StringBuilder sb1 = new StringBuilder(sb);
             sb1.append(currNode.val);
@@ -104,7 +104,9 @@ public class MTrieV2 {
             sbs.add(new StringBuilder(prefix).append(sb1));
             sb.delete(0, sb.length());
         }else{
-            sb.append(currNode.val);
+            if(isStart) {
+                sb.append(currNode.val);
+            }
         }
 
         if(currNode.next.values().size() == 0) {
@@ -114,7 +116,7 @@ public class MTrieV2 {
             return;
         }
         for(MTrieNodeV2 node : currNode.next.values()) {
-            tracer(node, sb, prefix, sbs);
+            tracer(node, true, sb, prefix, sbs);
         }
     }
 
