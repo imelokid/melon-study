@@ -2,6 +2,7 @@ package cn.melonkid.study.search;
 
 import cn.melonkid.exception.MelonStatusCodeEnums;
 import cn.melonkid.util.AssertUtil;
+import java.util.Collections;
 import org.junit.Test;
 
 /**
