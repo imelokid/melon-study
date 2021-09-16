@@ -13,34 +13,34 @@ public class ReverseSingleListTest extends BaseTester {
 
     @Test
     public void testReverseRegion() {
-        ListNode head = generateList(10);
+        ListNodeStr head = generateList(ListNodeStr.class, 10);
         String soureLis = printList("sourceLis", head);
         System.out.println(soureLis);
 
         ReverseSingleList singleList = new ReverseSingleList();
-        ListNode head1 = copyList(head);
+        ListNodeStr head1 = copyList(ListNodeStr.class, head);
         System.out.println(printList("copyLis", head1));
-        ListNode reverseLis = singleList.reverse(head1);
+        ListNodeStr reverseLis = singleList.reverse(head1);
         System.out.println(printList("reverseLis", reverseLis));
 
         // 从中间节点开始反转
-        ListNode head2 = copyList(head);
-        ListNode reverseRegionLis = singleList.reverseRegion(head2, 2, 5);
+        ListNodeStr head2 = copyList(ListNodeStr.class, head);
+        ListNodeStr reverseRegionLis = singleList.reverseRegion(head2, 2, 5);
         System.out.println(printList("reverseRegionLis", reverseRegionLis));
 
         // 从首节点进行反转
-        ListNode head3 = copyList(head);
-        ListNode reverseRegionLis1 = singleList.reverseRegion(head3, 0, 2);
+        ListNodeStr head3 = copyList(ListNodeStr.class, head);
+        ListNodeStr reverseRegionLis1 = singleList.reverseRegion(head3, 0, 2);
         System.out.println(printList("reverseRegionLis1", reverseRegionLis1));
 
         // 反转固定值区间
-        ListNode head4 = copyList(head);
-        ListNode reverseRegionLis2 = singleList.reverseRegion(head4, 0, 0);
+        ListNodeStr head4 = copyList(ListNodeStr.class, head);
+        ListNodeStr reverseRegionLis2 = singleList.reverseRegion(head4, 0, 0);
         System.out.println(printList("reverseRegionLis2", reverseRegionLis2));
 
         // 反转固定值区间
-        ListNode head5 = copyList(head);
-        ListNode reverseRegionLis3 = singleList.reverseRegion(head5, 1, 1);
+        ListNodeStr head5 = copyList(ListNodeStr.class, head);
+        ListNodeStr reverseRegionLis3 = singleList.reverseRegion(head5, 1, 1);
         System.out.println(printList("reverseRegionLis3", reverseRegionLis3));
     }
 

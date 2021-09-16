@@ -21,17 +21,17 @@ public class ReverseSingleList {
      *             next: 由于curr会在反转的过程中将next重新定向，所以链表会出现中断
      *             这时候为了下一次循环curr能找到正确的节点，需要在链表断裂之前将curr -> next 记录下来。
      */
-    public ListNode reverse(ListNode head) {
+    public ListNodeStr reverse(ListNodeStr head) {
 
         // 定义指针
-        ListNode curr = head;
-        ListNode pre = null;
-        ListNode next;
+        ListNodeStr curr = head;
+        ListNodeStr pre = null;
+        ListNodeStr next;
 
         // 开始循环
         while (curr != null) {
             // 保存后继
-            next = curr.next;
+            next = (ListNodeStr) curr.next;
             // 重新设置curr的后继为pre 这时链表出现断裂
             curr.next = pre;
             // 记录前序
@@ -59,19 +59,19 @@ public class ReverseSingleList {
      *             next: 由于curr会在反转的过程中将next重新定向，所以链表会出现中断
      *             这时候为了下一次循环curr能找到正确的节点，需要在链表断裂之前将curr -> next 记录下来。
      */
-    public ListNode reverseRegion(ListNode head, int startPos, int endPos) {
+    public ListNodeStr reverseRegion(ListNodeStr head, int startPos, int endPos) {
 
         // 定义指针
-        ListNode curr = head;
-        ListNode pre = null;
-        ListNode next = null;
-        ListNode startReverseNode = null;
-        ListNode startReversePreNode = null;
+        ListNodeStr curr = head;
+        ListNodeStr pre = null;
+        ListNodeStr next = null;
+        ListNodeStr startReverseNode = null;
+        ListNodeStr startReversePreNode = null;
 
         int idx = 0;
         while(curr != null){
             // 记录next
-            next = curr.next;
+            next = (ListNodeStr) curr.next;
 
             // 反转区间执行反转
             if(idx >= startPos && idx <= endPos) {

@@ -15,19 +15,19 @@ public abstract class BaseTester {
     /** LOGGER */
     protected Logger logger = LoggerFactory.getLogger(BaseTester.class);
 
-    protected ListNode generateList(int size) {
+    protected <T extends AbstractListNode> T generateList(Class<T> type, int size) {
 
-        ListNode head = null;
-        ListNode curr = null;
+        T head = null;
+        T curr = null;
 
-        for(int i = 0; i < size; i++) {
-            if(head == null) {
-                head = new ListNode(i + "");
+        for (int i = 0; i < size; i++) {
+            if (head == null) {
+                head = generateNode(type, i);
                 curr = head;
                 continue;
             }
 
-            ListNode node = new ListNode(i + "");
+            T node = generateNode(type, i);
             curr.next = node;
             curr = node;
         }
@@ -35,33 +35,46 @@ public abstract class BaseTester {
         return head;
     }
 
-    protected ListNode copyList(ListNode head) {
+    protected <T extends AbstractListNode> T generateNode(Class<T> type, Object val) {
+        T t = null;
+        try {
+            t = type.newInstance();
+            t.setVal(val);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return t;
+    }
 
-        ListNode newHead = null;
-        ListNode newCurrNode = null;
+    protected <T extends AbstractListNode> T copyList(Class<T> type, T head) {
 
-        while(head != null) {
-            if(newHead == null) {
-                newHead = new ListNode(head.val);
+        T newHead = null;
+        T newCurrNode = null;
+
+        while (head != null) {
+            if (newHead == null) {
+                newHead = generateNode(type, head.getVal());
                 newCurrNode = newHead;
-                head = head.next;
+                head = (T) head.next;
                 continue;
             }
 
-            newCurrNode.next = new ListNode(head.val);
-            newCurrNode = newCurrNode.next;
-            head = head.next;
+            newCurrNode.next = generateNode(type, head.getVal());
+            newCurrNode = (T) newCurrNode.next;
+            head = (T) head.next;
         }
 
         return newHead;
     }
 
-    protected String printList(String info, ListNode head) {
+    protected <T extends AbstractListNode> String printList(String info, T head) {
 
         StringBuilder sb = new StringBuilder(info + ":[");
-        while(head != null) {
-            sb.append(head.val);
-            head = head.next;
+        while (head != null) {
+            sb.append(head.getVal());
+            head = (T) head.next;
             sb.append(", ");
         }
         String str = sb.substring(0, sb.length() - ", ".length());
