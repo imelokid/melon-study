@@ -18,6 +18,7 @@
     <module>melon-study-db</module>
     <module>melon-study-leetcode</module>
     <module>melon-study-ioc</module>
+    <module>melon-study-something</module>
   </modules>
 
   <properties>
